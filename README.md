@@ -12,6 +12,7 @@ All of these can be disabled in the config. Some have extra config options for d
 - Multishot: Bows: Works same as crossbow, but vertical
 - Multishot: Tridents: Same as bows
 - Multishot: Melee: Does a follow up attack 11 ticks after the initial attack
+- Multishot: Bows, Crossbows: Disables iframes on hit so multiple arrows can cause damage
 - Fortune: Fishing rods: 50% chance per level to increase stack size of fished up item by 1
 - Frost Walker: Bows, Crossbows, Tridents: Gives slowness 1 to the hit entity for 2 seconds
 - Frost Walker: Melee: Gives slowness 1 to the hit entity for 2 seconds
