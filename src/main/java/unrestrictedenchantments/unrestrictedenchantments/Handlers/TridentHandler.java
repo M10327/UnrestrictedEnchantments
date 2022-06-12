@@ -33,8 +33,10 @@ public class TridentHandler implements Listener {
 
         if (trident.getItem().getItemMeta().hasEnchants()){
             // flame enchant
-            if (trident.getItem().getItemMeta().hasEnchant(Enchantment.ARROW_FIRE) && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("FlameTrident")){
-                event.getEntity().setFireTicks(80);
+            if (!event.isCancelled()){
+                if (trident.getItem().getItemMeta().hasEnchant(Enchantment.ARROW_FIRE) && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("FlameTrident")){
+                    event.getEntity().setFireTicks(80);
+                }
             }
         }
     }

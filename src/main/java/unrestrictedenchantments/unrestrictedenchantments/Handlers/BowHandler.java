@@ -135,8 +135,10 @@ public class BowHandler implements Listener {
                 event.setDamage(event.getDamage() * (1.25 + (0.25 * (double) arrow.getMetadata("URE_bow_power").get(0).asInt())));
             }
             if (arrow.getMetadata("URE_channeling").size() >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("Channeling")){
-                if (arrow.getWorld().isThundering()){
-                    arrow.getWorld().spawnEntity(arrow.getLocation(), EntityType.LIGHTNING);
+                if (!event.isCancelled()){
+                    if (arrow.getWorld().isThundering()){
+                        arrow.getWorld().spawnEntity(arrow.getLocation(), EntityType.LIGHTNING);
+                    }
                 }
             }
             if (event.getEntity() instanceof LivingEntity living && (arrow.getMetadata("URE_multishot").size() >= 1) && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("MultishotNoIframe")){
@@ -165,9 +167,11 @@ public class BowHandler implements Listener {
             }
         }
         // Frost Walker
-        if (event.getEntity().getMetadata("URE_frost").size() >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("FrostWalkerProjectile")){
-            if (event.getHitEntity() instanceof LivingEntity target){
-                target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0, false, true));
+        if (!event.isCancelled()){
+            if (event.getEntity().getMetadata("URE_frost").size() >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("FrostWalkerProjectile")){
+                if (event.getHitEntity() instanceof LivingEntity target){
+                    target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0, false, true));
+                }
             }
         }
     }

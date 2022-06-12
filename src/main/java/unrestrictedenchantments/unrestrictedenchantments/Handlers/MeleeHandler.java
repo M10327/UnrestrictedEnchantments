@@ -42,19 +42,23 @@ public class MeleeHandler implements Listener {
         if (weapon.getItemMeta() != null){
             if (weapon.getItemMeta().hasEnchants()){
                 // multishot
-                if (weapon.getItemMeta().getEnchantLevel(Enchantment.MULTISHOT) >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("MultishotMelee")){
-                    target.setNoDamageTicks(0);
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("UnrestrictedEnchantments")), () -> {
-                        target.damage(event.getDamage() * config.getDouble("MeleeMultishotDamage"));
+                if (!event.isCancelled()){
+                    if (weapon.getItemMeta().getEnchantLevel(Enchantment.MULTISHOT) >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("MultishotMelee")){
                         target.setNoDamageTicks(0);
-                        player.playSound(target.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0F, 1.5F);
-                        target.getWorld().spawnParticle(Particle.CRIT, target.getLocation().getX(),target.getLocation().getY() + 1,target.getLocation().getZ(),
-                                50, 0.5,0.5, 0.5,  null);
-                    }, 11L);
+                        Bukkit.getScheduler().scheduleSyncDelayedTask(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("UnrestrictedEnchantments")), () -> {
+                            target.damage(event.getDamage() * config.getDouble("MeleeMultishotDamage"));
+                            target.setNoDamageTicks(0);
+                            player.playSound(target.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0F, 1.5F);
+                            target.getWorld().spawnParticle(Particle.CRIT, target.getLocation().getX(),target.getLocation().getY() + 1,target.getLocation().getZ(),
+                                    50, 0.5,0.5, 0.5,  null);
+                        }, 11L);
+                    }
                 }
                 // frost walker
-                if (weapon.getItemMeta().getEnchantLevel(Enchantment.FROST_WALKER) >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("FrostWalkerMelee")){
-                    target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0, false, true));
+                if(!event.isCancelled()){
+                    if (weapon.getItemMeta().getEnchantLevel(Enchantment.FROST_WALKER) >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("FrostWalkerMelee")){
+                        target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0, false, true));
+                    }
                 }
             }
         }
