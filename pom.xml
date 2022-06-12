@@ -41,7 +41,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:mc_server\plugins\UnrestrictedEnchantments.jar</outputFile>
+                            <outputFile>C:\mc_server\plugins\UnrestrictedEnchantments.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
