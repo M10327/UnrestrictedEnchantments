@@ -1,0 +1,58 @@
+# This sets the damage multi added to crossbows per level of power
+# Bows use 0.25 but crossbows have higher base damage
+CrossbowPowerBase: 0.20
+
+# Settings for trident multishot. Affects how spread apart the additional tridents are
+# Higher value allows for higher level of multishot before it starts being weird
+TridentMultishotSpread: 0.25
+
+# Same as the TridentMultishotSpread setting but for bows
+BowMultishotSpread: 0.25
+
+# Percent of a melee attack that is added as a follow up attack for melee attacks with multishot
+MeleeMultishotDamage: 0.25
+
+# Sweeping edge on projectile settings
+# Damage amount of damage the aoe does per level
+# Range is a square around the projectile when it strikes something
+# this is hilariously abuseable now that I think about it lol
+SweepingDamage: 3
+SweepingRange: 2
+
+# Do not remove this section.
+# If you want to make it so no enchantments conflict just change the names to stuff that isn't enchantments
+# Also replace spaces in enchantment names with an underscore (_)
+ConflictingEnchants:
+  protection:
+    - fire_protection
+    - projectile_protection
+    - blast_protection
+  fire_protection:
+    - protection
+    - projectile_protection
+    - blast_protection
+  projectile_protection:
+    - protection
+    - fire_protection
+    - blast_protection
+  blast_protection:
+    - protection
+    - fire_protection
+    - projectile_protection
+
+# Just set to false to disable any of the additional enchantment functions
+# There is no way to disable stuff that works in vanilla (ie: looting on bows or knockback on a stick)
+EnabledEnchantments:
+  SweepingProjectiles: true
+  PowerCrossbow: true
+  FlameCrossbow: true
+  Channeling: true
+  MultishotBow: true
+  PiercingBow: true
+  MultishotNoIframe: true
+  FlameTrident: true
+  MultishotTrident: true
+  MultishotMelee: true
+  FortuneFishing: true
+  FrostWalkerProjectile: true
+  FrostWalkerMelee: true

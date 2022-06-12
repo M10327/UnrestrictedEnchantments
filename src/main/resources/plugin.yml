@@ -1,0 +1,8 @@
+name: UnrestrictedEnchantments
+version: '${project.version}'
+main: unrestrictedenchantments.unrestrictedenchantments.UnrestrictedEnchantments
+api-version: 1.18
+prefix: UEnchants
+authors: [ MelodyLux ]
+description: Allows you to enchant any item with any enchantment and adds support for some enchantments on other items
+website: https://silverportreborn.com
