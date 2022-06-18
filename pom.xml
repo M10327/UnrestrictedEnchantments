@@ -6,7 +6,7 @@
 
     <groupId>UnrestrictedEnchantments</groupId>
     <artifactId>UnrestrictedEnchantments</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>UnrestrictedEnchantments</name>
@@ -41,7 +41,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\mc_server\plugins\UnrestrictedEnchantments.jar</outputFile>
+                            <outputFile>C:\mc_server\plugins\UnrestrictedEnchantments_v${project.version}.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
