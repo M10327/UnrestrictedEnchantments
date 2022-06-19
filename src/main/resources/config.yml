@@ -1,6 +1,6 @@
 # This sets the damage multi added to crossbows per level of power
-# Bows use 0.25 but crossbows have higher base damage
-CrossbowPowerBase: 0.20
+# Bows use 0.25 and crossbows have higher base damage, but this seems to get it close enough. Adjust as needed
+CrossbowPowerBase: 0.25
 
 # Settings for trident multishot. Affects how spread apart the additional tridents are
 # Higher value allows for higher level of multishot before it starts being weird

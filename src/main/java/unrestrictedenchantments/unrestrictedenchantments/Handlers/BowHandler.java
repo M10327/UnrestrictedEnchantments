@@ -129,10 +129,10 @@ public class BowHandler implements Listener {
     public void entityArrowHit(EntityDamageByEntityEvent event) {
         if (event.getDamager() instanceof Arrow arrow){
             if (arrow.getMetadata("URE_crossbow_power").size() >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("PowerCrossbow")){
-                event.setDamage(event.getDamage() * (1.25 + (config.getDouble("CrossbowPowerBase") * (double) arrow.getMetadata("URE_crossbow_power").get(0).asInt())));
+                event.setDamage(event.getDamage() * (1.25 + (config.getDouble("CrossbowPowerBase") * (double) arrow.getMetadata("URE_crossbow_power").get(0).asDouble())));
             }
             if (arrow.getMetadata("URE_bow_power").size() >= 1){
-                event.setDamage(event.getDamage() * (1.25 + (0.25 * (double) arrow.getMetadata("URE_bow_power").get(0).asInt())));
+                event.setDamage(event.getDamage() * (1.25 + (0.25 * (double) arrow.getMetadata("URE_bow_power").get(0).asDouble())));
             }
             if (arrow.getMetadata("URE_channeling").size() >= 1 && Objects.requireNonNull(config.getConfigurationSection("EnabledEnchantments")).getBoolean("Channeling")){
                 if (!event.isCancelled()){

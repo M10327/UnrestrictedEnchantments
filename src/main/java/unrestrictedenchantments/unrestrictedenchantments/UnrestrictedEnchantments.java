@@ -3,9 +3,6 @@ package unrestrictedenchantments.unrestrictedenchantments;
 import org.bukkit.plugin.java.JavaPlugin;
 import unrestrictedenchantments.unrestrictedenchantments.Handlers.*;
 
-import java.util.*;
-
-
 public final class UnrestrictedEnchantments extends JavaPlugin {
     @Override
     public void onEnable() {
